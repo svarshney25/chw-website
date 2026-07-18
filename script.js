@@ -15,3 +15,18 @@ document.addEventListener('click', function () {
     menu.style.display = 'none';
   });
 });
+
+(function () {
+  var carousel = document.getElementById('featured-carousel');
+  if (!carousel) return;
+
+  var slides = carousel.querySelectorAll('.featured-slide');
+  if (slides.length < 2) return;
+
+  var current = 0;
+  setInterval(function () {
+    slides[current].classList.remove('active');
+    current = (current + 1) % slides.length;
+    slides[current].classList.add('active');
+  }, 4000);
+})();
